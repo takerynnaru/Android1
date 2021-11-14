@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/yellow"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/imageView_logo"
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        app:srcCompat="@drawable/logo"
+                        />
+                    <TextView
+                        android:id="@+id/icon_toolbar_home"
+                        android:layout_width="250dp"
+                        android:layout_height="match_parent"
+                        android:textSize="12dp"
+                        android:layout_marginLeft="5dp"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:text="Deliciously - Friendly - Conveniently"
+                        android:textColor="@color/blue_deep"
+                        ></TextView>
+                </androidx.appcompat.widget.Toolbar>
+
+                <ViewFlipper
+                    android:id="@+id/viewflipper"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar"
+                    app:layout_constraintLeft_toLeftOf="parent"></ViewFlipper>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycleView_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/blue"
+                    app:layout_constraintTop_toBottomOf="@id/viewflipper"
+                    app:layout_constraintLeft_toLeftOf="parent"></androidx.recyclerview.widget.RecyclerView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycleView_product"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recycleView_option"></androidx.recyclerview.widget.RecyclerView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nagivationviewLeft"
+            app:itemIconTint="@color/blue"
+            app:itemTextColor="@color/black"
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:menu="@menu/menu_navigation"></com.google.android.material.navigation.NavigationView>
+    </androidx.drawerlayout.widget.DrawerLayout>
+</LinearLayout>
