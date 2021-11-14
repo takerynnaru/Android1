@@ -34,12 +34,12 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
 
     Button btnSaveRegist, btnCancel;
-    EditText txtphone, txtpassword, txtrepass, txtemail, txtname, txtaddress, txtbirthday, txtgender;
+    EditText txtuser, txtpassword, txtrepass, txtemail, txtname, txtaddress, txtbirthday, txtgender, txtphone;
     RequestQueue requestQueue;
     ArrayList<NGUOIDUNG> user = new ArrayList<>();
     ArrayList<NGUOIDUNG> dangky = new ArrayList<>();
-    String url = "http://" + DEPRESS.ip + "/wsministop/register.php";
-    String urlNguoiDung = "http://" + DEPRESS.ip + "/wsministop/getnguoidung.php";
+    String url = "http://" + DEPRESS.ip + ":81/kltn/register.php";
+    String urlNguoiDung = "http://" + DEPRESS.ip + ":81/kltn/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
         btnSaveRegist = findViewById(R.id.btnSaveRegister);
         btnCancel = findViewById(R.id.btnCancel);
         //edit text
-        txtphone = findViewById(R.id.txt_phone);
+        txtuser = findViewById(R.id.txt_taikhoan);
         txtpassword = findViewById(R.id.txt_password);
         txtrepass = findViewById(R.id.txt_repass);
         txtemail = findViewById(R.id.txt_email);
@@ -69,6 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
         txtaddress = findViewById(R.id.txt_address);
         txtbirthday = findViewById(R.id.txt_ngaysinh);
         txtgender = findViewById(R.id.txt_gioitinh);
+        txtphone = findViewById(R.id.txt_sdt);
         requestQueue = Volley.newRequestQueue(this);
 
         LaydulieuNguoiDung();
@@ -81,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if (txtphone.getText().toString().equals("") || txtpassword.getText().toString().equals("") || txtrepass.getText().toString().equals("") || txtemail.getText().toString().equals("") || txtname.getText().toString().equals("") || txtaddress.getText().toString().equals("")) {
+                if (txtuser.getText().toString().equals("") || txtpassword.getText().toString().equals("") || txtrepass.getText().toString().equals("") || txtemail.getText().toString().equals("") || txtname.getText().toString().equals("") || txtaddress.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -93,10 +94,10 @@ public class RegisterActivity extends AppCompatActivity {
 //                        break;
 //                    }
 //                }
-                if(kiemTraDuLieuTrung(txtphone.getText().toString()))
+                if(kiemTraDuLieuTrung(txtuser.getText().toString()))
                 {
-                    Toast.makeText(getApplicationContext(), "Số điện thoại đã được đăng ký", Toast.LENGTH_LONG).show();
-                        txtphone.setText("");
+                    Toast.makeText(getApplicationContext(), "Tên đăng nhập đã được đăng ký", Toast.LENGTH_LONG).show();
+                    txtuser.setText("");
                         return;
                 }
                 if (!txtrepass.getText().toString().equals(txtpassword.getText().toString())) {
@@ -130,11 +131,11 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
-
+//Ktra trùng tên tài khoản
     private boolean kiemTraDuLieuTrung(String a) {
         for (NGUOIDUNG i : user) {
 
-            if (a.equals(i.sdtnhanvien))
+            if (a.equals(i.tendangnhap))
             {
                 return true; //co trung
             }
@@ -175,21 +176,23 @@ public class RegisterActivity extends AppCompatActivity {
         JSONObject postData = new JSONObject();
         try {
 
-            String sdt = txtphone.getText().toString();
+            String user = txtuser.getText().toString();
             String matkhau = txtpassword.getText().toString();
             String email = txtemail.getText().toString();
             String hoten = txtname.getText().toString();
             String diachi = txtaddress.getText().toString();
 //            String ngaysinh = txtbirthday.getText().toString();
             String gioitinh = txtgender.getText().toString();
+            String sdt = txtphone.getText().toString();
 //            postData.put("IDNguoiDung", "");
-            postData.put("SDT", sdt);
-            postData.put("HoTen", hoten);
-            postData.put("MatKhau", matkhau);
-            postData.put("Email", email);
+            postData.put("tendangnhap", user);
+            postData.put("tennhanvien", hoten);
+            postData.put("matkhau", matkhau);
+            postData.put("email", email);
 //            postData.put("NgaySinh", ngaysinh);
-            postData.put("GioiTinh", gioitinh);
-            postData.put("DiaChi", diachi);
+            postData.put("gioitinh", gioitinh);
+            postData.put("diachi", diachi);
+            postData.put("sdtnhanvien", sdt);
 //            postData.put("HinhAnh", "");
 //            dangky.add(new NGUOIDUNG(postData.getString("idnguoidung"), postData.getString("sdt"), postData.getString("hoten"), postData.getString("matkhau"), postData.getString("email"), postData.getString("ngaysinh"), postData.getString("gioitinh"), postData.getString("diachi"), postData.getString("hinhanh")));
 
@@ -224,7 +227,7 @@ public class RegisterActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject jsonObject = response.getJSONObject(i);
-                        user.add(new NGUOIDUNG(jsonObject.getString("manv"), jsonObject.getString("tennhanvien"), jsonObject.getString("sdtnhanvien"), jsonObject.getString("gioitinh"), jsonObject.getString("ngaysinh"), jsonObject.getString("email"), jsonObject.getString("diachi"), jsonObject.getString("macv"), jsonObject.getString("tendangnhap"), jsonObject.getString("matkhau"), jsonObject.getString("trangthai"), jsonObject.getString("motacongviec")));
+                        user.add(new NGUOIDUNG(jsonObject.getString("manv"), jsonObject.getString("tennhanvien"), jsonObject.getString("sdtnhanvien"), jsonObject.getString("gioitinh"), jsonObject.getString("ngaysinh"), jsonObject.getString("email"), jsonObject.getString("diachi"), jsonObject.getString("macv"), jsonObject.getString("tendangnhap"), jsonObject.getString("matkhau"), jsonObject.getString("trangthai"), jsonObject.getString("motacongviec"), jsonObject.getString("hinhanh")));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

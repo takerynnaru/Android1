@@ -15,8 +15,9 @@ public class NGUOIDUNG implements Serializable {
     String matkhau;
     String trangthai;
     String motacongviec;
+    String hinhanh;
 
-    public NGUOIDUNG(String manv, String tennhanvien, String sdtnhanvien, String gioitinh, String ngaysinh, String email, String diachi, String macv, String tendangnhap, String matkhau, String trangthai, String motacongviec) {
+    public NGUOIDUNG(String manv, String tennhanvien, String sdtnhanvien, String gioitinh, String ngaysinh, String email, String diachi, String macv, String tendangnhap, String matkhau, String trangthai, String motacongviec, String hinhanh) {
         this.manv = manv;
         this.tennhanvien = tennhanvien;
         this.sdtnhanvien = sdtnhanvien;
@@ -29,6 +30,7 @@ public class NGUOIDUNG implements Serializable {
         this.matkhau = matkhau;
         this.trangthai = trangthai;
         this.motacongviec = motacongviec;
+        this.hinhanh = hinhanh;
     }
 
     public String getManv() {
@@ -125,5 +127,13 @@ public class NGUOIDUNG implements Serializable {
 
     public void setMotacongviec(String motacongviec) {
         this.motacongviec = motacongviec;
+    }
+
+    public String getHinhanh() {
+        return hinhanh;
+    }
+
+    public void setHinhanh(String hinhanh) {
+        this.hinhanh = hinhanh;
     }
 }

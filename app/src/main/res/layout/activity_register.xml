@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
-    android:background="@color/yellow"
+    android:background="@color/blue_old"
     android:padding="20dp">
 
     <ScrollView
@@ -20,11 +20,11 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="44dp"
         android:gravity="center"
         android:layout_marginTop="2dp"
         android:text="ĐĂNG KÝ TÀI KHOẢN"
-        android:textColor="@color/blue"
+        android:textColor="@color/white"
 
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,8 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
-        android:text="MINISTOP"
-        android:textColor="@color/blue"
+        android:text="ĐIỆN THOẠI 24H"
+        android:textColor="@color/white"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,16 +45,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/txt_phone"
+        android:id="@+id/txt_taikhoan"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:drawablePadding="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/decorate_text_register"
-        android:drawableLeft="@drawable/ic_phone"
-        android:hint="Số điện thoại"
+        android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+        android:hint="Tài khoản"
         android:textColor="@color/black"
-        android:inputType="phone"
         android:textColorHint="@color/hint_txt"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
         tools:layout_editor_absoluteX="16dp" />
@@ -103,6 +102,21 @@
         android:textColorHint="@color/hint_txt"
         app:layout_constraintTop_toBottomOf="@+id/txt_repass"
         tools:layout_editor_absoluteX="20dp" />
+            <EditText
+                android:id="@+id/txt_sdt"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="50dp"
+                android:text=""
+                android:background="@drawable/decorate_text_register"
+                android:drawableLeft="@drawable/ic_phone"
+                android:drawablePadding="10dp"
+                android:hint="Số điện thoại"
+                android:inputType="phone"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hint_txt"
+                app:layout_constraintTop_toBottomOf="@+id/txt_repass"
+                tools:layout_editor_absoluteX="20dp" />
 
     <EditText
         android:id="@+id/txt_nameuser"
@@ -168,9 +182,9 @@
         android:id="@+id/btnSaveRegister"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/yellow_light"
         android:text="Đăng ký"
-        android:textColor="@color/white"
+        android:textColor="@color/blue"
         android:layout_marginTop="10dp"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -182,7 +196,7 @@
         android:layout_width="match_parent"
 
         android:layout_height="70dp"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/red_price"
         android:text="Huỷ bỏ"
         android:textColor="@color/white"
         android:textSize="15dp"
