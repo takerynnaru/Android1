@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (txtusername.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Vui lòng nhập số điện thoại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Vui lòng nhập tên đăng nhập", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (txtpassword.getText().toString().equals("")) {
