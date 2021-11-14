@@ -71,11 +71,11 @@ public class UserActivity extends AppCompatActivity {
             user = DEPRESS.USER;
             //load hình từ url
 
-            Picasso.with(this).load(url + user.getHinhanh()).placeholder(R.drawable.no_image_found).into(avatarUser);
-
-            tvNameAva.setText(user.getHoten());
-            txtHoTen.setText(user.getHoten());
-            txtSDT.setText(user.getSdt());
+//            Picasso.with(this).load(url + user.getHinhanh()).placeholder(R.drawable.no_image_found).into(avatarUser);
+//
+//            tvNameAva.setText(user.getHoten());
+//            txtHoTen.setText(user.getHoten());
+//            txtSDT.setText(user.getSdt());
             txtEmail.setText(user.getEmail());
             txtNgaySinh.setText(user.getNgaysinh());
             txtDiaChi.setText(user.getDiachi());

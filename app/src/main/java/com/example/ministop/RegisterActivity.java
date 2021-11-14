@@ -134,7 +134,7 @@ public class RegisterActivity extends AppCompatActivity {
     private boolean kiemTraDuLieuTrung(String a) {
         for (NGUOIDUNG i : user) {
 
-            if (a.equals(i.sdt))
+            if (a.equals(i.sdtnhanvien))
             {
                 return true; //co trung
             }
@@ -224,7 +224,7 @@ public class RegisterActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject jsonObject = response.getJSONObject(i);
-                        user.add(new NGUOIDUNG(jsonObject.getString("idnguoidung"), jsonObject.getString("sdt"), jsonObject.getString("hoten"), jsonObject.getString("matkhau"), jsonObject.getString("email"), jsonObject.getString("ngaysinh"), jsonObject.getString("gioitinh"), jsonObject.getString("diachi"), jsonObject.getString("hinhanh")));
+                        user.add(new NGUOIDUNG(jsonObject.getString("manv"), jsonObject.getString("tennhanvien"), jsonObject.getString("sdtnhanvien"), jsonObject.getString("gioitinh"), jsonObject.getString("ngaysinh"), jsonObject.getString("email"), jsonObject.getString("diachi"), jsonObject.getString("macv"), jsonObject.getString("tendangnhap"), jsonObject.getString("matkhau"), jsonObject.getString("trangthai"), jsonObject.getString("motacongviec")));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

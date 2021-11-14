@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/yellow"
+    android:background="@color/white"
     >
 
     <LinearLayout
@@ -34,10 +34,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="238dp"
+        android:layout_width="wrap_content"
         android:layout_height="173dp"
         android:layout_marginTop="116dp"
-        android:background="@drawable/logo"
+        android:background="@drawable/z2925824678370_0919d80705766ce5cd8db930aca4a14d"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>

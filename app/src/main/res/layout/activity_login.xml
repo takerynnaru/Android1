@@ -8,7 +8,7 @@
     android:paddingRight="20dp"
     android:paddingLeft="20dp"
     android:scrollbars="vertical"
-    android:background="@color/yellow">
+    android:background="@color/blue_deep">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -22,7 +22,7 @@
         android:layout_width="210dp"
         android:layout_height="154dp"
         android:layout_marginTop="7dp"
-        android:background="@drawable/logo"
+        android:background="@drawable/z2925824678370_0919d80705766ce5cd8db930aca4a14d"
         android:layout_marginLeft="80dp"
  />
 
@@ -31,8 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
-        android:text="CỬA HÀNG TIỆN LỢI"
-        android:textColor="@color/blue"
+        android:text="Cửa hàng sửa chữa, bảo trì"
+        android:textColor="@color/white"
         android:textSize="30dp" />
 
     <TextView
@@ -40,8 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
-        android:text="MINISTOP"
-        android:textColor="@color/blue"
+        android:text="ĐIỆN THOẠI 24H"
+        android:textColor="@color/white"
         android:textSize="30dp"
         android:textStyle="bold"/>
 
@@ -53,8 +53,7 @@
         android:drawablePadding="10dp"
         android:background="@drawable/decorate_text_login"
         android:drawableLeft="@drawable/ic_phone"
-        android:hint="Số điện thoại"
-        android:inputType="phone"
+        android:hint="Tên đăng nhập"
         android:paddingLeft="20dp"
         android:textColor="@color/black"
         android:textColorHint="@color/hint_txt"/>
@@ -80,14 +79,14 @@
         android:layout_marginBottom="10dp"
         android:layout_marginStart="4dp"
         android:text="Lưu mật khẩu"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20dp"/>
 
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:backgroundTint="@color/blue"
+                android:backgroundTint="@color/black"
                 android:text="Đăng nhập"
                 android:textColor="@color/white"
                 android:textSize="15dp"
@@ -97,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tạo tài khoản mới"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20dp"
                 android:layout_marginLeft="100dp"/>
 
@@ -105,7 +104,7 @@
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:backgroundTint="@color/blue"
+                android:backgroundTint="@color/yellow"
                 android:onClick="HandleLogin"
                 android:text="Đăng ký"
                 android:textColor="@color/white"
@@ -117,7 +116,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Đăng nhập bằng mạng xã hội"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20dp"
         android:layout_marginLeft="50dp" />
 <LinearLayout
@@ -143,7 +142,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="1"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/red_basic"
         android:drawableLeft="@drawable/ic_logogg"
         android:onClick="HandleLogin"
         android:textColor="@color/white"

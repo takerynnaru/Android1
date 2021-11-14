@@ -103,8 +103,8 @@ public class OrderActivity extends AppCompatActivity implements OnClickListenerO
         if(DEPRESS.USER != null)
         {
             user = DEPRESS.USER;
-            lblten.setText(user.getHoten());
-            lblsdt.setText(user.getSdt());
+            lblten.setText(user.getTennhanvien());
+            lblsdt.setText(user.getSdtnhanvien());
             lbldiachi.setText(user.getDiachi());
         }
         //truyen du lieu tien giam
