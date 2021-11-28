@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -16,9 +17,17 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.Map;
 
 public class UserActivity extends AppCompatActivity {
     Button btnSave, btnLogout;
@@ -26,11 +35,8 @@ public class UserActivity extends AppCompatActivity {
     ImageView avatarUser;
     TextView tvNameAva, txtHoTen, txtSDT, txtEmail, txtNgaySinh , txtDiaChi, txtGioiTinh;
     RadioButton rdoNam, rdoNu;
-
-
-
-    String url = "http://" + DEPRESS.ip + "/wsministop/nguoidung/";
-
+    
+    String url = "http://" + DEPRESS.ip + ":81/kltn/user/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +50,7 @@ public class UserActivity extends AppCompatActivity {
                 = new ColorDrawable(Color.parseColor("#003894"));
         // Set BackgroundDrawable
         actionBar.setBackgroundDrawable(colorDrawable);
-        actionBar.setTitle("Thông tin người dùng"); //Thiết lập tiêu đề
+        actionBar.setTitle("Thông tin nhân viên"); //Thiết lập tiêu đề
         //String title = actionBar.getTitle().toString();
 
 
@@ -71,11 +77,11 @@ public class UserActivity extends AppCompatActivity {
             user = DEPRESS.USER;
             //load hình từ url
 
-//            Picasso.with(this).load(url + user.getHinhanh()).placeholder(R.drawable.no_image_found).into(avatarUser);
+           Picasso.with(this).load(url + user.getHinhanh()).placeholder(R.drawable.no_image_found).into(avatarUser);
 //
-//            tvNameAva.setText(user.getHoten());
-//            txtHoTen.setText(user.getHoten());
-//            txtSDT.setText(user.getSdt());
+            tvNameAva.setText(user.getTennhanvien());
+            txtHoTen.setText(user.getTennhanvien());
+            txtSDT.setText(user.getSdtnhanvien());
             txtEmail.setText(user.getEmail());
             txtNgaySinh.setText(user.getNgaysinh());
             txtDiaChi.setText(user.getDiachi());
@@ -86,11 +92,6 @@ public class UserActivity extends AppCompatActivity {
             }
             else
                 rdoNu.setChecked(true);
-
-
-
-
-
         }
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -123,12 +124,5 @@ public class UserActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
-
-
-
 
 }

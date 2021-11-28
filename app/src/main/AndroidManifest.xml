@@ -9,9 +9,9 @@
     <application
         android:name=".Notification_Application"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/telephone"
+        android:label="Điện Thoại 24g"
+        android:roundIcon="@mipmap/telephone"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ministop"
         android:usesCleartextTraffic="true">
