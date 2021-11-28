@@ -35,7 +35,7 @@ public class UserActivity extends AppCompatActivity {
     ImageView avatarUser;
     TextView tvNameAva, txtHoTen, txtSDT, txtEmail, txtNgaySinh , txtDiaChi, txtGioiTinh;
     RadioButton rdoNam, rdoNu;
-    
+
     String url = "http://" + DEPRESS.ip + ":81/kltn/user/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {

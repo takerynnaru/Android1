@@ -18,76 +18,293 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"></androidx.constraintlayout.widget.ConstraintLayout>
+
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/yellow"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@color/blue_old"
+                    android:padding="5dp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:id="@+id/imageView_logo"
-                        android:layout_width="70dp"
-                        android:layout_height="50dp"
-                        app:srcCompat="@drawable/logo"
-                        />
+                    app:layout_constraintTop_toTopOf="parent">
                     <TextView
                         android:id="@+id/icon_toolbar_home"
-                        android:layout_width="250dp"
+                        android:layout_width="270dp"
                         android:layout_height="match_parent"
-                        android:textSize="12dp"
-                        android:layout_marginLeft="5dp"
-                        android:textStyle="bold"
+                        android:layout_marginLeft="15dp"
                         android:fontFamily="serif"
-                        android:text="Deliciously - Friendly - Conveniently"
-                        android:textColor="@color/blue_deep"
-                        ></TextView>
+                        android:text="Khách hàng là thượng đế!"
+                        android:textColor="@color/white"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
                 </androidx.appcompat.widget.Toolbar>
 
                 <ViewFlipper
                     android:id="@+id/viewflipper"
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    app:layout_constraintTop_toBottomOf="@id/toolbar"
-                    app:layout_constraintLeft_toLeftOf="parent"></ViewFlipper>
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar"></ViewFlipper>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycleView_option"
+                <LinearLayout
+                    android:id="@+id/linear_home"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="@color/blue"
-                    app:layout_constraintTop_toBottomOf="@id/viewflipper"
-                    app:layout_constraintLeft_toLeftOf="parent"></androidx.recyclerview.widget.RecyclerView>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recycleView_product"
+                    <GridLayout
+                        android:id="@+id/gridlayout_home"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/recycleView_option"></androidx.recyclerview.widget.RecyclerView>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:layout_height="wrap_content"
+                        android:columnOrderPreserved="false"
+                        android:alignmentMode="alignMargins"
+                        android:rowCount="4"
+                        android:columnCount="2"
+                        >
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            app:cardCornerRadius="6dp"
+                            android:layout_margin="12dp"
+                            app:cardElevation="6dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <ImageView
+                                    android:src="@drawable/people"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"/>
+                                <TextView
+                                    android:layout_marginTop="12dp"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/blue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Chấm Công"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            app:cardCornerRadius="6dp"
+                            android:layout_margin="12dp"
+                            app:cardElevation="6dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <ImageView
+                                    android:src="@drawable/timetable"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"/>
+                                <TextView
+                                    android:layout_marginTop="12dp"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/blue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Lịch Làm"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            app:cardCornerRadius="6dp"
+                            android:layout_margin="12dp"
+                            app:cardElevation="6dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <ImageView
+                                    android:src="@drawable/ic_baseline_search_24"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"/>
+                                <TextView
+                                    android:layout_marginTop="12dp"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/blue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tìm Kiếm"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            app:cardCornerRadius="6dp"
+                            android:layout_margin="12dp"
+                            app:cardElevation="6dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <ImageView
+                                    android:src="@drawable/user"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"/>
+                                <TextView
+                                    android:layout_marginTop="12dp"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/blue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Thông tin cá nhân"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            app:cardCornerRadius="6dp"
+                            android:layout_margin="12dp"
+                            app:cardElevation="6dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <ImageView
+                                    android:src="@drawable/map"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"/>
+                                <TextView
+                                    android:layout_marginTop="12dp"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/blue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Bản đồ"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            app:cardCornerRadius="6dp"
+                            android:layout_margin="12dp"
+                            app:cardElevation="6dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <ImageView
+                                    android:src="@drawable/z2925823873876_2094e6fd8adfbb661994b8efa3986ae7"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"/>
+                                <TextView
+                                    android:layout_marginTop="12dp"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/blue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="This Text"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            app:cardCornerRadius="6dp"
+                            android:layout_margin="12dp"
+                            app:cardElevation="6dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <ImageView
+                                    android:src="@drawable/z2925824678370_0919d80705766ce5cd8db930aca4a14d"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"/>
+                                <TextView
+                                    android:layout_marginTop="12dp"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/blue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="This Text"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            app:cardCornerRadius="6dp"
+                            android:layout_margin="12dp"
+                            app:cardElevation="6dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <ImageView
+                                    android:src="@drawable/z2925823873876_2094e6fd8adfbb661994b8efa3986ae7"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"/>
+                                <TextView
+                                    android:layout_marginTop="12dp"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/blue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="This Text"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                    </GridLayout>
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
-
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nagivationviewLeft"
-            app:itemIconTint="@color/blue"
-            app:itemTextColor="@color/black"
-            android:background="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
+            android:background="@color/white"
             android:fitsSystemWindows="true"
+            app:itemIconTint="@color/blue"
+            app:itemTextColor="@color/black"
             app:menu="@menu/menu_navigation"></com.google.android.material.navigation.NavigationView>
     </androidx.drawerlayout.widget.DrawerLayout>
 </LinearLayout>

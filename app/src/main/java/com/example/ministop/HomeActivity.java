@@ -65,6 +65,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     ViewFlipper viewFlipper;
     DrawerLayout drawerLayout;
 
+
     Toolbar toolbar;
     NavigationView navigationLeft;
 
@@ -80,14 +81,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         actionBar.setTitle("Trang chủ");
 
         //Ánh xạ
-        recyclerView = findViewById(R.id.recycleView_option);
-        recyclerView2 = findViewById(R.id.recycleView_product);
         viewFlipper = findViewById(R.id.viewflipper);
-        icon = findViewById(R.id.imageView_logo);
+        //icon = findViewById(R.id.imageView_logo);
 
         //animation
-        ani = AnimationUtils.loadAnimation(this, R.anim.rotate_logo_home);
-        icon.startAnimation(ani);
+//        ani = AnimationUtils.loadAnimation(this, R.anim.rotate_logo_home);
+//        icon.startAnimation(ani);
 
         drawerLayout = findViewById(R.id.drawerlayout);
         //set navigation vao icon menu
@@ -120,16 +119,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         navigation(mSelectedId);
 
         //Load du lieu danh muc sp
-        optionsAdapter_recycle = new OptionsAdapter_Recycle(this, dulieu, this);
-        recyclerView.setAdapter(optionsAdapter_recycle);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        LayDanhMucSP();
+//        optionsAdapter_recycle = new OptionsAdapter_Recycle(this, dulieu, this);
+//        recyclerView.setAdapter(optionsAdapter_recycle);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+//        LayDanhMucSP();
         loadViewFlipper();
         //Load du lieu list san pham
-        productsAdapter_recycle = new ProductsAdapter_Recycle(this, data,this);
-        recyclerView2.setAdapter(productsAdapter_recycle);
-        recyclerView2.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        LaySanPham();
+//        productsAdapter_recycle = new ProductsAdapter_Recycle(this, data,this);
+//        recyclerView2.setAdapter(productsAdapter_recycle);
+//        recyclerView2.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+//        LaySanPham();
 
     }
 
@@ -165,7 +164,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     void loadViewFlipper() {
         // Y: 192.168.22.102    //Ru: 192.168.1.5
-        String urlslide = "http://" + DEPRESS.ip + "/wsministop/slide/";
+        String urlslide = "http://" + DEPRESS.ip + ":81/kltn/slide/";
         ArrayList<String> mangslide = new ArrayList<>();
 
         mangslide.add(urlslide + "1.jpg");
@@ -173,11 +172,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mangslide.add(urlslide + "3.jpg");
         mangslide.add(urlslide + "4.jpg");
         mangslide.add(urlslide + "5.jpg");
-        mangslide.add(urlslide + "6.jpg");
-        mangslide.add(urlslide + "7.jpg");
-        mangslide.add(urlslide + "8.jpg");
-        mangslide.add(urlslide + "9.jpg");
-        mangslide.add(urlslide + "10.jpg");
 
         for (int i = 0; i < mangslide.size(); i++) {
             ImageView imageView = new ImageView(this);
@@ -322,7 +316,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search,menu);
-        getMenuInflater().inflate(R.menu.menu_cart,menu);
+        //getMenuInflater().inflate(R.menu.menu_cart,menu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
@@ -345,18 +339,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         return true;
     }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_cart)
-        {
-            Intent intent = new Intent(this,CartActivity.class);
-            startActivity(intent);
-        }
-
-        return true;
-    }
+//// Nút giỏ hàng
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        int id = item.getItemId();
+//        if (id == R.id.action_cart)
+//        {
+//            Intent intent = new Intent(this,CartActivity.class);
+//            startActivity(intent);
+//        }
+//
+//        return true;
+//    }
     // -------------------------------------------------------------------------//
 
 //    private boolean didUserSeeDrawer()
