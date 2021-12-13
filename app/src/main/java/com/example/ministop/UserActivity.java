@@ -22,11 +22,13 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class UserActivity extends AppCompatActivity {
@@ -35,8 +37,12 @@ public class UserActivity extends AppCompatActivity {
     ImageView avatarUser;
     TextView tvNameAva, txtHoTen, txtSDT, txtEmail, txtNgaySinh , txtDiaChi, txtGioiTinh;
     RadioButton rdoNam, rdoNu;
+    String sdt, hoten, email, diachi;
+    String getID;
 
-    String url = "http://" + DEPRESS.ip + ":81/kltn/user/";
+    String url = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/android/xemnhanvienkythuat";
+    String url_update = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/android/suanhanvien";
+    String url_image = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/public/img/user/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +58,6 @@ public class UserActivity extends AppCompatActivity {
         actionBar.setBackgroundDrawable(colorDrawable);
         actionBar.setTitle("Thông tin nhân viên"); //Thiết lập tiêu đề
         //String title = actionBar.getTitle().toString();
-
-
 
         //anh xa
         btnSave = findViewById(R.id.btn_User_Save);
@@ -76,8 +80,8 @@ public class UserActivity extends AppCompatActivity {
         {
             user = DEPRESS.USER;
             //load hình từ url
-
-           Picasso.with(this).load(url + user.getHinhanh()).placeholder(R.drawable.no_image_found).into(avatarUser);
+            getID = user.getManv();
+           Picasso.with(this).load(url_image + user.getHinhanh()).placeholder(R.drawable.no_image_found).into(avatarUser);
 //
             tvNameAva.setText(user.getTennhanvien());
             txtHoTen.setText(user.getTennhanvien());
@@ -97,16 +101,14 @@ public class UserActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Lưu thông tin thành công", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(UserActivity.this, HomeActivity.class);
-                startActivity(intent);
+                thayDoiThongTin();
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DEPRESS.carts = new ArrayList<>();
                 Toast.makeText(getApplicationContext(), "Đăng xuất thành công", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(UserActivity.this, LoginActivity.class);
                 startActivity(intent);
@@ -124,5 +126,44 @@ public class UserActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    public void thayDoiThongTin(){
+         sdt = txtSDT.getText().toString().trim();
+         hoten = txtHoTen.getText().toString().trim();
+         email = txtEmail.getText().toString().trim();
+         diachi = txtDiaChi.getText().toString().trim();
 
+
+        StringRequest request = new StringRequest(Request.Method.POST, url_update, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(!sdt.isEmpty() && !hoten.isEmpty() && !email.isEmpty() && !diachi.isEmpty()){
+                    if(response.contains("1")){
+                        Toast.makeText(getApplicationContext(), "Thay đổi thông tin thành công", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UserActivity.this, "Vui lòng đăng nhập lại", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Các thông tin phải được nhập đầy đủ!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> data = new HashMap<>();
+                data.put("sdtnhanvien", sdt);
+                data.put("tennhanvien", hoten);
+                data.put("email", email);
+                data.put("diachi", diachi);
+                data.put("manv", getID);
+                return data;
+            }
+        };
+        Volley.newRequestQueue(this).add(request);
+    }
 }

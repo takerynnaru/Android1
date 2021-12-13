@@ -21,11 +21,6 @@ public class Products implements Serializable {
         this.madm = madm;
     }
 
-
-
-
-
-
     public String getMadm() {
         return madm;
     }
@@ -33,9 +28,6 @@ public class Products implements Serializable {
     public void setMadm(String madm) {
         this.madm = madm;
     }
-
-
-
 
 
     public String getMa() {

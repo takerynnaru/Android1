@@ -21,16 +21,20 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsAdapter_Recycle extends RecyclerView.Adapter<ProductsAdapter_Recycle.KHUNGNHIN> implements Filterable {
+import de.hdodenhof.circleimageview.CircleImageView;
+
+
+public class StaffAdapter_RecycleView extends RecyclerView.Adapter<StaffAdapter_RecycleView.KHUNGNHIN> implements Filterable{
+
     Context context;
-    ArrayList<Products> dulieu;
-    ArrayList<Products> dulieusearch;
-    private OnClickListener listener;
+    ArrayList<NGUOIDUNG> dulieu;
+    ArrayList<NGUOIDUNG> dulieusearch;
+    OnClickListener listener;
 
 
-    String url = "http://" + DEPRESS.ip + "/wsministop/sanpham/";
+    String url = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/public/img/user/";
 
-    public ProductsAdapter_Recycle(Context context, ArrayList<Products> dulieu, OnClickListener listener) {
+    public StaffAdapter_RecycleView(Context context, ArrayList<NGUOIDUNG> dulieu, OnClickListener listener) {
         this.context = context;
         this.dulieu = dulieu;
         this.listener = listener;
@@ -45,20 +49,19 @@ public class ProductsAdapter_Recycle extends RecyclerView.Adapter<ProductsAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductsAdapter_Recycle.KHUNGNHIN holder, int position) {
-        Products products = dulieu.get(position);
+    public void onBindViewHolder(@NonNull KHUNGNHIN holder, int position) {
+        NGUOIDUNG nguoidung = dulieu.get(position);
 
         Picasso.with(context)
-                .load(url + products.hinh)
+                .load(url + nguoidung.hinhanh)
                 .placeholder(R.drawable.no_image_found)
                 .into(holder.hinh);
 
-        holder.ten.setText(products.ten);
+        holder.ten.setText(nguoidung.tennhanvien);
         //holder.mota.setText(products.mota);
         //set format cho giá
-        holder.id.setText("ID: "+ products.ma);
-        holder.products = dulieu.get(position);
-
+        holder.id.setText("ID: "+ nguoidung.manv);
+        holder.nguoidung = dulieu.get(position);
     }
 
     @Override
@@ -66,11 +69,10 @@ public class ProductsAdapter_Recycle extends RecyclerView.Adapter<ProductsAdapte
         return dulieu.size();
     }
 
-
     public class KHUNGNHIN extends RecyclerView.ViewHolder
     {
-        Products products;
-        ImageView hinh;
+        NGUOIDUNG nguoidung;
+        CircleImageView hinh;
         TextView ten;
         TextView id;
         //TextView mota;
@@ -85,12 +87,12 @@ public class ProductsAdapter_Recycle extends RecyclerView.Adapter<ProductsAdapte
 
 
             //Xu ly su kien click item cua recycle view
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    listener.itemClick(products);
-//                }
-//            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.itemClick(nguoidung);
+                }
+            });
         }
     }
 
@@ -107,12 +109,12 @@ public class ProductsAdapter_Recycle extends RecyclerView.Adapter<ProductsAdapte
                 }
                 else
                 {
-                    ArrayList<Products> list = new ArrayList<>();
-                    for(Products products : dulieusearch)
+                    ArrayList<NGUOIDUNG> list = new ArrayList<>();
+                    for(NGUOIDUNG nguoidung : dulieusearch)
                     {
-                        if(products.getTen().toLowerCase().contains(strSearch.toLowerCase()))
+                        if(nguoidung.getTennhanvien().toLowerCase().contains(strSearch.toLowerCase()))
                         {
-                            list.add(products);
+                            list.add(nguoidung);
                         }
                     }
                     dulieu = list;
@@ -125,10 +127,9 @@ public class ProductsAdapter_Recycle extends RecyclerView.Adapter<ProductsAdapte
 
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
-                dulieu = (ArrayList<Products>) results.values;
+                dulieu = (ArrayList<NGUOIDUNG>) results.values;
                 notifyDataSetChanged();
             }
         };
     }
-
 }

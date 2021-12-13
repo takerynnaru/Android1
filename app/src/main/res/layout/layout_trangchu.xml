@@ -24,32 +24,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"></androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/blue_old"
-                    android:padding="5dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-                    <TextView
-                        android:id="@+id/icon_toolbar_home"
-                        android:layout_width="270dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:fontFamily="serif"
-                        android:text="Khách hàng là thượng đế!"
-                        android:textColor="@color/white"
-                        android:textSize="20dp"
-                        android:textStyle="bold"></TextView>
-                </androidx.appcompat.widget.Toolbar>
+<!--                <androidx.appcompat.widget.Toolbar-->
+<!--                    android:id="@+id/toolbar"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@color/blue_old"-->
+<!--                    android:padding="5dp"-->
+<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent">-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/icon_toolbar_home"-->
+<!--                        android:layout_width="270dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginLeft="15dp"-->
+<!--                        android:fontFamily="serif"-->
+<!--                        android:text="Khách hàng là thượng đế!"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textStyle="bold"></TextView>-->
+<!--                </androidx.appcompat.widget.Toolbar>-->
 
                 <ViewFlipper
                     android:id="@+id/viewflipper"
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/toolbar"></ViewFlipper>
+                    ></ViewFlipper>
 
                 <LinearLayout
                     android:id="@+id/linear_home"
@@ -68,6 +68,7 @@
                         >
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cvchamcong"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_columnWeight="1"
@@ -91,11 +92,12 @@
                                     android:textColor="@color/blue"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Chấm Công"/>
+                                    android:text="Chấm công"/>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cvNhiemVu"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_columnWeight="1"
@@ -103,27 +105,31 @@
                             app:cardCornerRadius="6dp"
                             android:layout_margin="12dp"
                             app:cardElevation="6dp">
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:padding="16dp">
+
                                 <ImageView
-                                    android:src="@drawable/timetable"
                                     android:layout_width="80dp"
-                                    android:layout_height="80dp"/>
+                                    android:layout_height="80dp"
+                                    android:src="@drawable/timetable" />
+
                                 <TextView
-                                    android:layout_marginTop="12dp"
-                                    android:textSize="18sp"
-                                    android:textColor="@color/blue"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Lịch Làm"/>
+                                    android:layout_marginTop="12dp"
+                                    android:text="Nhiệm vụ"
+                                    android:textColor="@color/blue"
+                                    android:textSize="18sp" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cvTimKien"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_columnWeight="1"
@@ -147,11 +153,12 @@
                                     android:textColor="@color/blue"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Tìm Kiếm"/>
+                                    android:text="Tìm Kiếm NV"/>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cvTTcanhan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_columnWeight="1"
@@ -159,23 +166,26 @@
                             app:cardCornerRadius="6dp"
                             android:layout_margin="12dp"
                             app:cardElevation="6dp">
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:padding="16dp">
+
                                 <ImageView
-                                    android:src="@drawable/user"
                                     android:layout_width="80dp"
-                                    android:layout_height="80dp"/>
+                                    android:layout_height="80dp"
+                                    android:src="@drawable/user" />
+
                                 <TextView
-                                    android:layout_marginTop="12dp"
-                                    android:textSize="18sp"
-                                    android:textColor="@color/blue"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="TT cá nhân"/>
+                                    android:layout_marginTop="12dp"
+                                    android:text="TT cá nhân"
+                                    android:textColor="@color/blue"
+                                    android:textSize="18sp" />
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -296,15 +306,5 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nagivationviewLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:background="@color/white"
-            android:fitsSystemWindows="true"
-            app:itemIconTint="@color/blue"
-            app:itemTextColor="@color/black"
-            app:menu="@menu/menu_navigation"></com.google.android.material.navigation.NavigationView>
     </androidx.drawerlayout.widget.DrawerLayout>
 </LinearLayout>

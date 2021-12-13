@@ -68,12 +68,12 @@ public class OptionsAdapter_Recycle extends RecyclerView.Adapter<OptionsAdapter_
 
 
             //Xu ly su kien click item cua recycle view
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.ItemClick(options);
-                }
-            });
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    listener.ItemClick(options);
+//                }
+//            });
         }
     }
 }

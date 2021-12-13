@@ -5,44 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
-
     >
-
-    <ImageView
-        android:id="@+id/img_product"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_staff"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/food_tteok" />
+        android:src="@drawable/food_tteok" />
 
     <TextView
-        android:id="@+id/tv_product1"
+        android:id="@+id/tv_staffName"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:fontFamily="sans-serif-black"
         android:text="TextView"
         android:textColor="@color/blue"
         android:textSize="25dp"
-        android:fontFamily="sans-serif-black"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toEndOf="@+id/img_product"
+        app:layout_constraintStart_toEndOf="@+id/img_staff"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_product3"
+        android:id="@+id/tv_staffID"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="TextView"
-        android:textAlignment="viewEnd"
-        android:textColor="@color/red_price"
+        android:textColor="@color/hint_txt"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_product1" />
+
+        app:layout_constraintStart_toEndOf="@+id/img_staff"
+        app:layout_constraintTop_toBottomOf="@+id/tv_staffName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

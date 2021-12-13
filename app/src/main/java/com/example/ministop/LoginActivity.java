@@ -16,11 +16,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -28,6 +30,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnLogin, btnDangky;
@@ -36,10 +40,12 @@ public class LoginActivity extends AppCompatActivity {
     Animation animation;
     EditText txtusername, txtpassword;
     SharedPreferences luutru;
-    ArrayList<NGUOIDUNG> user = new ArrayList<>();
+    NGUOIDUNG user;
+    ArrayList<NGUOIDUNG> user_array = new ArrayList<>();
+    String username, password;
 
-
-    String urlnguoidung = "http://" + DEPRESS.ip + ":81/kltn/login.php";
+    String url = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/android/dangnhap";
+    String url_user = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/android/xemnhanvienkythuat";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,28 +54,19 @@ public class LoginActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-//        ColorDrawable colorDrawable
-//                = new ColorDrawable(Color.parseColor("#fdcc32"));
-//        // Set BackgroundDrawable
-//        actionBar.setBackgroundDrawable(colorDrawable);
-//        actionBar.setTitle(""); //Thiết lập tiêu đề
-//        //actionBar.hide();
-//        String title = actionBar.getTitle().toString();
 
         //anh xa
+        username = password = "";
         txtusername = findViewById(R.id.txtusername);
         txtpassword = findViewById(R.id.txtpassword);
         chkSave = findViewById(R.id.chkSave);
         btnLogin = findViewById(R.id.btnLogin);
-        btnDangky = findViewById(R.id.btnRegister);
         imgLogo = findViewById(R.id.imageView);
 
         //tao anmiation cho logo
         animation = AnimationUtils.loadAnimation(this, R.anim.combine_logo);
         imgLogo.startAnimation(animation);
 
-
-        LaydulieuDangNhap();
         luutru = getSharedPreferences("data", MODE_PRIVATE);
         //nap du lieu
         if (luutru.getBoolean("saveinfo", false) == true) {
@@ -78,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             txtpassword.setText(luutru.getString("password", ""));
             chkSave.setChecked(true);
         }
-
+        LayUser();
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,10 +88,9 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Vui lòng nhập mật khẩu", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                else
-                    {
-                    //Duyet mang
-                    for (NGUOIDUNG i : user) {
+                else {
+//Duyet mang
+                    for (NGUOIDUNG i : user_array) {
                         if(txtusername.getText().toString().equals(i.tendangnhap) && !txtpassword.getText().toString().equals(i.matkhau))
                         {
                             Toast.makeText(getApplicationContext(), "Sai mật khẩu", Toast.LENGTH_SHORT).show();
@@ -123,7 +119,42 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void LaydulieuDangNhap() {
-        //Lay mang user
+        username = txtusername.getText().toString();
+        password = txtpassword.getText().toString();
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (response.contains("1")) {
+                    Toast.makeText(getApplicationContext(), "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    for(NGUOIDUNG i: user_array)
+                    {username = i.getTendangnhap();
+                    password = i.getMatkhau();
+                        startActivity(intent);}
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Sai thông tin đăng nhập, vui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> data = new HashMap<>();
+                data.put("tendangnhap", username);
+                data.put("matkhau_nhap", password);
+                return data;
+            }
+        };
+        Volley.newRequestQueue(this).add(request);
+    }
+
+    //Lay du lieu user
+    public void LayUser() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         Response.Listener<JSONArray> thanhcong = new Response.Listener<JSONArray>() {
@@ -132,7 +163,7 @@ public class LoginActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject jsonObject = response.getJSONObject(i);
-                        user.add(new NGUOIDUNG(jsonObject.getString("manv"), jsonObject.getString("tennhanvien"), jsonObject.getString("sdtnhanvien"), jsonObject.getString("gioitinh"), jsonObject.getString("ngaysinh"), jsonObject.getString("email"), jsonObject.getString("diachi"), jsonObject.getString("macv"), jsonObject.getString("tendangnhap"), jsonObject.getString("matkhau"), jsonObject.getString("trangthai"), jsonObject.getString("motacongviec"), jsonObject.getString("hinhanh")));
+                        user_array.add(new NGUOIDUNG(jsonObject.getString("manv"), jsonObject.getString("tennhanvien"), jsonObject.getString("sdtnhanvien"), jsonObject.getString("gioitinh"), jsonObject.getString("ngaysinh"), jsonObject.getString("email"), jsonObject.getString("diachi"), jsonObject.getString("macv"), jsonObject.getString("tendangnhap"), jsonObject.getString("matkhau"), jsonObject.getString("trangthai"), jsonObject.getString("motacongviec"), jsonObject.getString("hinhanh")));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -146,19 +177,18 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
         };
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, urlnguoidung, thanhcong, thatbai);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url_user, thanhcong, thatbai);
         requestQueue.add(jsonArrayRequest);
     }
-
 
 
     public void HandleLogin(View view) {
         int id = view.getId();
         switch (id) {
-            case R.id.btnRegister:
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-                break;
+//            case R.id.btnRegister:
+//                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+//                startActivity(intent);
+//                break;
             case R.id.btnfb:
                 FbClick();
                 break;

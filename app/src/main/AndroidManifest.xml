@@ -15,17 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ministop"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Order_SuccessfulActivity"></activity>
-        <activity android:name=".OrderActivity" />
         <activity android:name=".SupportChatActivity" />
         <activity android:name=".LocationActivity" />
-        <activity android:name=".SPTheoDanhMucActivity" />
         <activity android:name=".DetailActivity" />
-        <activity android:name=".CartActivity" />
         <activity android:name=".UserActivity" />
-        <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomeActivity" />
+        <activity android:name=".NhanVienActivity" />
+        <activity android:name=".TaskJobActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
