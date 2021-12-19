@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_old"
+    android:background="@color/blue_light"
     android:padding="10dp"
     tools:context=".UserActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -23,9 +22,7 @@
                 android:layout_height="178dp"
                 android:layout_weight="6"
                 android:gravity="center"
-
                 android:orientation="vertical">
-
                 <ImageView
                     android:id="@+id/imgAvatar"
                     android:layout_width="100dp"
@@ -63,17 +60,13 @@
                     app:layout_constraintHorizontal_bias="0.501"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnChangeImage" />
-
-
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:background="@color/white"
                 android:orientation="vertical"
                 android:padding="10dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -278,29 +271,27 @@
                 android:orientation="vertical"
                 >
                 <Button
-                    android:id="@+id/btn_User_LogOut"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:backgroundTint="@color/yellow"
-                    android:text="Đăng xuất"
-                    android:textColor="@color/blue"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/btn_User_Save"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <Button
                     android:id="@+id/btn_User_Save"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:backgroundTint="@color/yellow"
+                    android:backgroundTint="@color/blue"
                     android:text="Lưu thay đổi"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/white"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
-
+                <Button
+                    android:id="@+id/btn_User_LogOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:backgroundTint="@color/red_price"
+                    android:text="Đăng xuất"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_User_Save"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
             </LinearLayout>
 

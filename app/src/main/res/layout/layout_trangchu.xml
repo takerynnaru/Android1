@@ -24,25 +24,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"></androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--                <androidx.appcompat.widget.Toolbar-->
-<!--                    android:id="@+id/toolbar"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:background="@color/blue_old"-->
-<!--                    android:padding="5dp"-->
-<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent">-->
-<!--                    <TextView-->
-<!--                        android:id="@+id/icon_toolbar_home"-->
-<!--                        android:layout_width="270dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_marginLeft="15dp"-->
-<!--                        android:fontFamily="serif"-->
-<!--                        android:text="Khách hàng là thượng đế!"-->
-<!--                        android:textColor="@color/white"-->
-<!--                        android:textSize="20dp"-->
-<!--                        android:textStyle="bold"></TextView>-->
-<!--                </androidx.appcompat.widget.Toolbar>-->
 
                 <ViewFlipper
                     android:id="@+id/viewflipper"

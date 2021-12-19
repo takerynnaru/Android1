@@ -31,7 +31,7 @@ public class LocationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final String[] sSource = {""};
-        String sDestinication = "Ministop";
+        String sDestinication = "24hStore";
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         //Check permission

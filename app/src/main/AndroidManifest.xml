@@ -15,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ministop"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SupportChatActivity" />
         <activity android:name=".LocationActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".UserActivity" />
