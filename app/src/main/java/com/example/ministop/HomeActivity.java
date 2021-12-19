@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity implements OnClickListener {
     private int mSelectedId;
     Animation ani;
     ImageView icon;
-    CardView cardView, cardView2, cardView3;
+    CardView cardView, cardView2, cardView3, cardView4;
     private static final String SELECTED_ITEM_ID = "selected"; //nguoi dung da select item
     //private static final String FRIST_TIME = "fist_time"; // nguoi dung select lan dau
     private boolean mUserSawDrawer = false; //neu nguoi dung mo thi sau do khong hien thi lai
@@ -86,21 +86,11 @@ public class HomeActivity extends AppCompatActivity implements OnClickListener {
         cardView = findViewById(R.id.cvTTcanhan);
         cardView2 = findViewById(R.id.cvTimKien);
         cardView3 = findViewById(R.id.cvNhiemVu);
-        //animation
-//        ani = AnimationUtils.loadAnimation(this, R.anim.rotate_logo_home);
-//        icon.startAnimation(ani);
+        cardView4 = findViewById(R.id.cvMap);
+
 
         drawerLayout = findViewById(R.id.drawerlayout);
 
-        //set navigation vao icon menu
-//        toolbar = findViewById(R.id.toolbar);
-//        toolbar.setNavigationIcon(R.drawable.ic_baseline_menu_24);
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                drawerLayout.openDrawer(GravityCompat.START);
-//            }
-//        });
         loadViewFlipper();
 
         //Su kien click card view
@@ -130,6 +120,13 @@ public class HomeActivity extends AppCompatActivity implements OnClickListener {
                     LoadGiaoDien();
                 }
 
+            }
+        });
+        cardView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, LocationActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -207,17 +204,6 @@ public class HomeActivity extends AppCompatActivity implements OnClickListener {
         }
     }
 
-    /*private  void showDrawer()
-    {
-        drawerLayout.openDrawer(GravityCompat.START);
-    }
-
-    private  void hideDrawer()
-    {
-        drawerLayout.closeDrawer(GravityCompat.START);
-    }*/
-
-
 
     //---------------------Xu ly su kien click item--------------------//
     // -------------------------------------------------------------------------//
@@ -229,38 +215,6 @@ public class HomeActivity extends AppCompatActivity implements OnClickListener {
           DEPRESS.USER = nguoidung;
         startActivity(intent);
     }
-
-    //---------------------------------------------------------------------------//
-
-    //------------------------------Xu ly search view----------------------------//
-    // -------------------------------------------------------------------------//
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_search,menu);
-//        //getMenuInflater().inflate(R.menu.menu_cart,menu);
-//
-//        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-//        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-//        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-//        searchView.setMaxWidth(Integer.MAX_VALUE);
-//
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                productsAdapter_recycle.getFilter().filter(query);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                productsAdapter_recycle.getFilter().filter(newText);
-//                return false;
-//            }
-//        });
-//
-//        return true;
-//    }
-
 
     //----------Button Cong Viec------------//
     public void LoadGiaoDien(){

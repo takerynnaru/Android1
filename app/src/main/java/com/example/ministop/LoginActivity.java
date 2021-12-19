@@ -93,25 +93,12 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     //Duyet mang
                     for (NGUOIDUNG i : user_array) {
-                        if (txtusername.getText().toString().equals(i.tendangnhap) && !txtpassword.getText().toString().equals(i.matkhau)) {
-                            Toast.makeText(getApplicationContext(), "Sai mật khẩu", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-
-
-                        if (txtusername.getText().toString().equals(i.tendangnhap) && txtpassword.getText().toString().equals(i.matkhau)) {
-                            Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                        if(txtusername.getText().toString().equals(i.tendangnhap))
+                        {
+                            LaydulieuDangNhap();
                             DEPRESS.USER = i;
-                            SharedPreferences.Editor editor = luutru.edit();
-                            if (chkSave.isChecked()) {
-                                //luu lai thong tin
-                                editor.putString("username", txtusername.getText().toString());
-                                editor.putString("password", txtpassword.getText().toString());
-                            }
-                            editor.putBoolean("saveinfo", chkSave.isChecked());
-                            editor.commit();
-                            Intent intent1 = new Intent(LoginActivity.this, HomeActivity.class);
-                            startActivity(intent1);
+                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                            startActivity(intent);
                         }
                     }
                 }
@@ -120,19 +107,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void LaydulieuDangNhap() {
-        username = txtusername.getText().toString();
-        password = txtpassword.getText().toString();
+        username = txtusername.getText().toString().trim();
+        password = txtpassword.getText().toString().trim();
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
                 if (response.contains("1")) {
                     Toast.makeText(getApplicationContext(), "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                    for (NGUOIDUNG i : user_array) {
-                        username = i.getTendangnhap();
-                        password = i.getMatkhau();
-                        startActivity(intent);
-                    }
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Sai thông tin đăng nhập, vui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
