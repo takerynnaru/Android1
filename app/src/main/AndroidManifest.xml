@@ -23,6 +23,8 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".NhanVienActivity" />
         <activity android:name=".TaskJobActivity" />
+        <activity android:name=".FinishedFixingActivity" />
+        <activity android:name=".HasTaskActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

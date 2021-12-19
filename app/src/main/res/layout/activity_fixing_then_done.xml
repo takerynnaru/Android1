@@ -7,12 +7,15 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:padding="10dp">
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:gravity="center"
             android:orientation="vertical"
             >
 
@@ -42,7 +46,7 @@
                 android:gravity="center"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/blue"
-                android:text="Thật tuyệt vời! Hiện tại chưa có công việc nào được giao"
+                android:text="Đang sửa chữa..."
                 android:textSize="25dp" />
 
             <LinearLayout
@@ -52,16 +56,24 @@
                 android:layout_marginTop="50dp"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/imgTask"
+                <pl.droidsonroids.gif.GifImageView
+                    android:id="@+id/gifFixing"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/hooray"
-                    android:visibility="visible"/>
-
+                    android:src="@drawable/fixing"/>
                 <Button
-                    android:id="@+id/btnReturnToHome"
+                    android:id="@+id/btnFinished"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Hoàn thành sửa chữa"
+                    android:drawableLeft="@drawable/ic_phone"
+                    android:drawableTint="@color/white"
+                    android:textColor="@color/white"
+                    />
+                <Button
+                    android:id="@+id/btnbackHome"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginTop="5dp"
@@ -71,5 +83,8 @@
                     />
             </LinearLayout>
         </LinearLayout>
+
+
     </LinearLayout>
+</ScrollView>
 </LinearLayout>

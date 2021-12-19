@@ -37,7 +37,7 @@ public class TaskJobActivity extends AppCompatActivity {
 
     ImageView imageView;
     TextView txtShow;
-    Button btnReturn, btnUpdate;
+    Button btnReturn;
     String getID;
 
     @Override
@@ -48,15 +48,8 @@ public class TaskJobActivity extends AppCompatActivity {
         //Anh xa
         txtShow = findViewById(R.id.tv_TaskShow);
         btnReturn = findViewById(R.id.btnReturnToHome);
-        btnUpdate = findViewById(R.id.btn_ReceiveTask);
         imageView = findViewById(R.id.imgTask);
 
-        if(DEPRESS.USER != null)
-        {
-            user = DEPRESS.USER;
-            getID = user.getManv();
-            LoadGiaoDien();
-        }
         //
         //txtID.setText(user.get(sessionManager.ID));
         btnReturn.setOnClickListener(new View.OnClickListener() {
@@ -68,34 +61,4 @@ public class TaskJobActivity extends AppCompatActivity {
         });
     }
 
-    public void LoadGiaoDien(){
-        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                    if(response.contains("1")){
-                        btnUpdate.setVisibility(View.GONE);
-                        txtShow.setText("Thật tuyệt vời! Hiện tại chưa có công việc nào được giao");
-                    }
-                    else if (response.contains("0")){
-                        btnUpdate.setVisibility(View.VISIBLE);
-                        imageView.setVisibility(View.INVISIBLE);
-                        txtShow.setText("Bạn đang có công việc cần sửa chữa! Hãy nhanh chóng nhận việc được giao nào!");
-                    }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT).show();
-            }
-        })
-        {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> data = new HashMap<>();
-                data.put("manvien",getID);
-                return data;
-            }
-        };
-        Volley.newRequestQueue(this).add(request);
-    }
 }

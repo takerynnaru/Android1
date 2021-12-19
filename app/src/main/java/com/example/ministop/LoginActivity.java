@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     Animation animation;
     EditText txtusername, txtpassword;
     SharedPreferences luutru;
-    NGUOIDUNG user;
+    //NGUOIDUNG user;
     ArrayList<NGUOIDUNG> user_array = new ArrayList<>();
     String username, password;
 
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         actionBar.hide();
 
         //anh xa
-        username = password = "";
+        //username = password = "";
         txtusername = findViewById(R.id.txtusername);
         txtpassword = findViewById(R.id.txtpassword);
         chkSave = findViewById(R.id.chkSave);
@@ -67,6 +67,8 @@ public class LoginActivity extends AppCompatActivity {
         animation = AnimationUtils.loadAnimation(this, R.anim.combine_logo);
         imgLogo.startAnimation(animation);
 
+
+        LayUser();
         luutru = getSharedPreferences("data", MODE_PRIVATE);
         //nap du lieu
         if (luutru.getBoolean("saveinfo", false) == true) {
@@ -75,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
             txtpassword.setText(luutru.getString("password", ""));
             chkSave.setChecked(true);
         }
-        LayUser();
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,10 +91,9 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 else {
-//Duyet mang
+                    //Duyet mang
                     for (NGUOIDUNG i : user_array) {
-                        if(txtusername.getText().toString().equals(i.tendangnhap) && !txtpassword.getText().toString().equals(i.matkhau))
-                        {
+                        if (txtusername.getText().toString().equals(i.tendangnhap) && !txtpassword.getText().toString().equals(i.matkhau)) {
                             Toast.makeText(getApplicationContext(), "Sai mật khẩu", Toast.LENGTH_SHORT).show();
                             return;
                         }
@@ -127,10 +128,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.contains("1")) {
                     Toast.makeText(getApplicationContext(), "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                    for(NGUOIDUNG i: user_array)
-                    {username = i.getTendangnhap();
-                    password = i.getMatkhau();
-                        startActivity(intent);}
+                    for (NGUOIDUNG i : user_array) {
+                        username = i.getTendangnhap();
+                        password = i.getMatkhau();
+                        startActivity(intent);
+                    }
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Sai thông tin đăng nhập, vui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();

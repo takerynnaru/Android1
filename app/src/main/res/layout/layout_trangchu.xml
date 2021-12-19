@@ -66,9 +66,8 @@
                         android:rowCount="4"
                         android:columnCount="2"
                         >
-
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cvchamcong"
+                            android:id="@+id/cvTimKien"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_columnWeight="1"
@@ -83,7 +82,7 @@
                                 android:orientation="vertical"
                                 android:padding="16dp">
                                 <ImageView
-                                    android:src="@drawable/people"
+                                    android:src="@drawable/ic_baseline_search_24"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp"/>
                                 <TextView
@@ -92,7 +91,7 @@
                                     android:textColor="@color/blue"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Chấm công"/>
+                                    android:text="Tìm Kiếm NV"/>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -128,34 +127,7 @@
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/cvTimKien"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_rowWeight="1"
-                            app:cardCornerRadius="6dp"
-                            android:layout_margin="12dp"
-                            app:cardElevation="6dp">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:padding="16dp">
-                                <ImageView
-                                    android:src="@drawable/ic_baseline_search_24"
-                                    android:layout_width="80dp"
-                                    android:layout_height="80dp"/>
-                                <TextView
-                                    android:layout_marginTop="12dp"
-                                    android:textSize="18sp"
-                                    android:textColor="@color/blue"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Tìm Kiếm NV"/>
-                            </LinearLayout>
-                        </androidx.cardview.widget.CardView>
+
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/cvTTcanhan"
@@ -216,6 +188,34 @@
                                     android:text="Bản đồ"/>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cvchamcong"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            app:cardCornerRadius="6dp"
+                            android:layout_margin="12dp"
+                            app:cardElevation="6dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+                                <ImageView
+                                    android:src="@drawable/people"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"/>
+                                <TextView
+                                    android:layout_marginTop="12dp"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/blue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Loading..."/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
@@ -241,7 +241,7 @@
                                     android:textColor="@color/blue"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="This Text"/>
+                                    android:text="Loading..."/>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -269,7 +269,7 @@
                                     android:textColor="@color/blue"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="This Text"/>
+                                    android:text="Loading..."/>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -297,7 +297,7 @@
                                     android:textColor="@color/blue"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="This Text"/>
+                                    android:text="Loading..."/>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 

@@ -53,7 +53,8 @@ public class NhanVienActivity extends AppCompatActivity implements OnClickListen
                 = new ColorDrawable(Color.parseColor("#003894"));
         // Set BackgroundDrawable
         actionBar.setBackgroundDrawable(colorDrawable);
-        actionBar.setTitle("Nhân Viên"); //Thiết lập tiêu đề
+        actionBar.setTitle("Tìm kiếm nhân viên"); //Thiết lập tiêu đề
+        //String title = actionBar.getTitle().toString();
 
         recyclerView = findViewById(R.id.rv_user);
 
