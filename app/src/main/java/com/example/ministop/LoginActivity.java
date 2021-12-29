@@ -44,8 +44,8 @@ public class LoginActivity extends AppCompatActivity {
     ArrayList<NGUOIDUNG> user_array = new ArrayList<>();
     String username, password;
 
-    String url = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/android/dangnhap";
-    String url_user = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/android/xemnhanvienkythuat";
+    String url = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/android/dangnhap";
+    String url_user = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/android/xemnhanvienkythuat";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,10 +97,9 @@ public class LoginActivity extends AppCompatActivity {
                         {
                             LaydulieuDangNhap();
                             DEPRESS.USER = i;
-                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                            startActivity(intent);
                         }
                     }
+
                 }
             }
         });
@@ -115,9 +114,12 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (response.contains("1")) {
                     Toast.makeText(getApplicationContext(), "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(intent);
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Sai thông tin đăng nhập, vui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
+                    return;
                 }
             }
         }, new Response.ErrorListener() {

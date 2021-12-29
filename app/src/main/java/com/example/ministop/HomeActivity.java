@@ -49,12 +49,12 @@ public class HomeActivity extends AppCompatActivity implements OnClickListener {
     private int mSelectedId;
     Animation ani;
     ImageView icon;
-    CardView cardView, cardView2, cardView3, cardView4;
+    CardView cardView, cardView2, cardView3, cardView4, cardView5;
     private static final String SELECTED_ITEM_ID = "selected"; //nguoi dung da select item
     //private static final String FRIST_TIME = "fist_time"; // nguoi dung select lan dau
     private boolean mUserSawDrawer = false; //neu nguoi dung mo thi sau do khong hien thi lai
 
-    String url = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/android/laytrangthaiCV";
+    String url = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/android/laytrangthaiCV";
     NGUOIDUNG user;
     String getID;
 
@@ -87,6 +87,7 @@ public class HomeActivity extends AppCompatActivity implements OnClickListener {
         cardView2 = findViewById(R.id.cvTimKien);
         cardView3 = findViewById(R.id.cvNhiemVu);
         cardView4 = findViewById(R.id.cvMap);
+        cardView5 = findViewById(R.id.cvlsphancong);
 
 
         drawerLayout = findViewById(R.id.drawerlayout);
@@ -129,6 +130,14 @@ public class HomeActivity extends AppCompatActivity implements OnClickListener {
                 startActivity(intent);
             }
         });
+
+        cardView5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, HistoryTaskActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 //    public void LayTrangThaiCV() {
@@ -163,7 +172,7 @@ public class HomeActivity extends AppCompatActivity implements OnClickListener {
 
     void loadViewFlipper() {
         // Y: 192.168.22.102    //Ru: 192.168.1.5
-        String urlslide = "http://" + DEPRESS.ip + ":81/kltn/slide/";
+        String urlslide = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/public/img/slide/";
         ArrayList<String> mangslide = new ArrayList<>();
 
         mangslide.add(urlslide + "1.jpg");

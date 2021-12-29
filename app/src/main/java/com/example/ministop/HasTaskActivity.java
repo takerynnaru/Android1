@@ -39,13 +39,13 @@ public class HasTaskActivity extends AppCompatActivity {
 
     ImageView imageView;
     Button btnReturn, btnContinue;
-    TextView txtMoTa, txtMaSP, txtTenSP, txtSoLuong, txtDonGia, txtThanhTien;
+    TextView txtMoTa;
 
     RecyclerView recyclerView;
     ArrayList<TASK> data = new ArrayList<>();
     TaskAdapter_RecycleView taskAdapter_recycleView;
     String id = DEPRESS.USER.getManv();
-    String url = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/public/xemviecphancong.php?id=" + id;
+    String url = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/public/xemviecphancong.php?id=" + id;
     NGUOIDUNG user;
     String getID;
     @Override
@@ -66,6 +66,7 @@ public class HasTaskActivity extends AppCompatActivity {
         if (DEPRESS.USER != null) {
             user = DEPRESS.USER;
             getID = user.getManv();
+
             txtMoTa.setText(user.getMotacongviec());
 
 

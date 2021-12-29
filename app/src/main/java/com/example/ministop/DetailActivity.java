@@ -27,7 +27,7 @@ public class DetailActivity extends AppCompatActivity {
     //Products products;
 
 
-    String url = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/public/img/user/";
+    String url = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/public/img/user/";
     private MenuItem item;
 
 

@@ -31,7 +31,7 @@ public class LocationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final String[] sSource = {""};
-        String sDestinication = "24hStore";
+        String sDestinication = "Đại học công nghiệp thực phẩm HUFI";
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         //Check permission

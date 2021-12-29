@@ -36,7 +36,7 @@ public class NhanVienActivity extends AppCompatActivity implements OnClickListen
     ArrayList<NGUOIDUNG> data = new ArrayList<>();
     StaffAdapter_RecycleView staffAdapter_recycleView;
 
-    String url = "http://" + DEPRESS.ip +":81/KhoaLuanTotNghiep/android/xemnhanvien";
+    String url = "http://" + DEPRESS.ip +"/KhoaLuanTotNghiep/android/xemnhanvien";
 
     SearchView searchView;
     @Override
@@ -46,9 +46,7 @@ public class NhanVienActivity extends AppCompatActivity implements OnClickListen
 
         //Hide action bar
         ActionBar actionBar = getSupportActionBar();
-        //thanh tro ve home
         actionBar.setDisplayHomeAsUpEnabled(true);
-        //doi mau thanh action bar
         ColorDrawable colorDrawable
                 = new ColorDrawable(Color.parseColor("#003894"));
         // Set BackgroundDrawable

@@ -10,7 +10,7 @@
         android:name=".Notification_Application"
         android:allowBackup="true"
         android:icon="@mipmap/telephone"
-        android:label="Điện Thoại 24g"
+        android:label="Cấp cứu điện thoại"
         android:roundIcon="@mipmap/telephone"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ministop"
@@ -24,6 +24,7 @@
         <activity android:name=".TaskJobActivity" />
         <activity android:name=".FinishedFixingActivity" />
         <activity android:name=".HasTaskActivity" />
+        <activity android:name=".HistoryTaskActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

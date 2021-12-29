@@ -29,18 +29,18 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Cửa hàng sửa chữa, bảo trì"
         android:textColor="@color/white"
-        android:textSize="30dp" />
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
-        android:text="ĐIỆN THOẠI 24H"
+        android:text="CẤP CỨU ĐIỆN THOẠI"
         android:textColor="@color/white"
         android:textSize="30dp"
         android:textStyle="bold"/>

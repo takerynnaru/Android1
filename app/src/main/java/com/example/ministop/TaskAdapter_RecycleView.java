@@ -26,7 +26,7 @@ public class TaskAdapter_RecycleView extends RecyclerView.Adapter<TaskAdapter_Re
     ArrayList<TASK> dulieu;
 
 
-    String url = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/public/img/";
+    String url = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/public/img/";
 
     public TaskAdapter_RecycleView(Context context, ArrayList<TASK> dulieu) {
         this.context = context;

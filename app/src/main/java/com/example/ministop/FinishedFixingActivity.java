@@ -35,8 +35,8 @@ public class FinishedFixingActivity extends AppCompatActivity {
     NGUOIDUNG user;
     TASK task;
     String getID, getMaHD;
-    String url = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/android/suaxongnhanvien";
-    String url2 = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/android/suaxongphancong";
+    String url = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/android/suaxongnhanvien";
+    String url2 = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/android/suaxongphancong";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

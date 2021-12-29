@@ -229,7 +229,6 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:hint="Ngày sinh"
-                        android:inputType="date"
                         android:textColor="@color/black"
                         android:textColorHint="@color/hint_txt"
                         android:textSize="16dp" />

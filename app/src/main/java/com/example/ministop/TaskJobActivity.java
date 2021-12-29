@@ -33,7 +33,7 @@ import java.util.Map;
 public class TaskJobActivity extends AppCompatActivity {
 
     NGUOIDUNG user;
-    String url = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/android/laytrangthaiCV";
+    String url = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/android/laytrangthaiCV";
 
     ImageView imageView;
     TextView txtShow;

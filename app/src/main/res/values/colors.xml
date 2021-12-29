@@ -17,4 +17,5 @@
     <color name= "red_price">#FF3030</color>
     <color name="yellow_light">#FFFF99</color>
     <color name="blue_light">#80bfff</color>
+    <color name="green">#99ff66</color>
 </resources>

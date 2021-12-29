@@ -32,7 +32,7 @@ public class StaffAdapter_RecycleView extends RecyclerView.Adapter<StaffAdapter_
     OnClickListener listener;
 
 
-    String url = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/public/img/user/";
+    String url = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/public/img/user/";
 
     public StaffAdapter_RecycleView(Context context, ArrayList<NGUOIDUNG> dulieu, OnClickListener listener) {
         this.context = context;

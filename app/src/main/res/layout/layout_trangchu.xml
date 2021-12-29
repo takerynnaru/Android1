@@ -171,7 +171,7 @@
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cvchamcong"
+                            android:id="@+id/cvlsphancong"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_columnWeight="1"
@@ -195,7 +195,7 @@
                                     android:textColor="@color/blue"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Loading..."/>
+                                    android:text="Lịch sử CV"/>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -28,6 +30,7 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,12 +40,16 @@ public class UserActivity extends AppCompatActivity {
     ImageView avatarUser;
     TextView tvNameAva, txtHoTen, txtSDT, txtEmail, txtNgaySinh , txtDiaChi, txtGioiTinh;
     RadioButton rdoNam, rdoNu;
-    String sdt, hoten, email, diachi;
+    String sdt, hoten, email, diachi, ngaysinh, gioitinh;
     String getID;
 
-    String url = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/android/xemnhanvienkythuat";
-    String url_update = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/android/suanhanvien";
-    String url_image = "http://" + DEPRESS.ip + ":81/KhoaLuanTotNghiep/public/img/user/";
+    String url = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/android/xemnhanvienkythuat";
+    String url_update = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/android/suanhanvien";
+    String url_image = "http://" + DEPRESS.ip + "/KhoaLuanTotNghiep/public/img/user/";
+
+
+    //Them datetime picker
+    DatePickerDialog.OnDateSetListener setListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +81,11 @@ public class UserActivity extends AppCompatActivity {
         txtNgaySinh = findViewById(R.id.txt_User_Birthday);
         txtDiaChi = findViewById(R.id.txt_User_Address);
 
+        Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
 
 //        Gui du lieu tu Login
         if(DEPRESS.USER != null)
@@ -97,6 +109,21 @@ public class UserActivity extends AppCompatActivity {
             else
                 rdoNu.setChecked(true);
         }
+            //Su kien click vao edit text Ngay Sinh
+        txtNgaySinh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(UserActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int day) {
+                        month = month +1;
+                        String date = day +"-"+month+"-"+year;
+                        txtNgaySinh.setText(date);
+                    }
+                },year,month,day);
+                datePickerDialog.show();
+            }
+        });
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,7 +158,15 @@ public class UserActivity extends AppCompatActivity {
          hoten = txtHoTen.getText().toString().trim();
          email = txtEmail.getText().toString().trim();
          diachi = txtDiaChi.getText().toString().trim();
-
+         ngaysinh = txtNgaySinh.getText().toString().trim();
+         if(rdoNam.isChecked())
+         {
+             gioitinh = rdoNam.getText().toString().trim();
+         }
+        else if(rdoNu.isChecked())
+        {
+            gioitinh = rdoNu.getText().toString().trim();
+        }
 
         StringRequest request = new StringRequest(Request.Method.POST, url_update, new Response.Listener<String>() {
             @Override
@@ -160,6 +195,8 @@ public class UserActivity extends AppCompatActivity {
                 data.put("tennhanvien", hoten);
                 data.put("email", email);
                 data.put("diachi", diachi);
+                data.put("ngaysinh", ngaysinh);
+                data.put("gioitinh", gioitinh);
                 data.put("manv", getID);
                 return data;
             }
